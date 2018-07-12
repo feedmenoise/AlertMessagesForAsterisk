@@ -27,23 +27,36 @@ function write () {
     }
     fclose($fp);
 }
-?>
 
-
-<a href="?confirm=true"><input name="confirm" type="button" value="confirm" " /></a>
-
-<?php
 function confirm() {
-    $message=shell_exec("./testscript.sh 2>&1");
+    $message=shell_exec("./testscript.sh");
     print_r($message);
 }
 
 if (isset($_GET['confirm'])) {
     confirm();
+    echo '<a href="?dialplan=true"><input name="dialplan" type="button" value="Dialplan Reload" " /></a>';
 }
 
 if (isset($_GET['write'])){
     write();
+    echo '<a href="?confirm=true"><input name="confirm" type="button" value="confirm" " /></a>';
+}
+
+if (isset($_GET['dialplan'])){
+    $message=shell_exec("./reloadDialplan.sh");
+    print_r($message);
+    echo '<a href="index.html"><input name="back" type="button" value="back" " /></a>';
+}
+
+if (isset($_GET['clear'])) {
+    //here must be solution for clearing current message
+
+}
+
+if (isset($_GET['current_message'])) {
+    //here must be solution which display current message
+
 }
 
 ?>
