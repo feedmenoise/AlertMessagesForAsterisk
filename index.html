@@ -43,14 +43,21 @@
             </select>
         </TD>
         <TD>
-            <input name="add" type="button" value="Add" onclick="FirstListBox();" />
-            <input name="remove" type="button" value="Remove" onclick="SecondListBox();" />
         </TD>
         <TD>
             <select size="28" name="ListBox1" id="ListBox1">
             </select>
         </TD>
 </TABLE>
+<input name="add" type="button" value="Add" onclick="FirstListBox();" />
+<input name="remove" type="button" value="Remove" onclick="SecondListBox();" />
+
+
+<form action="core.php" method='post' name='myform' onSubmit='send_value()'>
+    <input name='secret' type='hidden' value=''>
+    <input type='submit' value='Apply'>
+</form>
+
 <script type="text/javascript" src="js/scripts.js"></script>
 </BODY>
 

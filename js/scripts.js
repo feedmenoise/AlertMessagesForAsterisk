@@ -15,7 +15,8 @@ function FirstListBox() {
         var count = document.getElementById("lstBox").options.length;
         for (i = 0; i < count; i++) {
             if (document.getElementById("lstBox").options[i].selected) {
-                SecListBox(document.getElementById("ListBox1"), document.getElementById("lstBox").options[i].value, document.getElementById("lstBox").options[i].value, document.getElementById("lstBox").options[i].id );
+                SecListBox(document.getElementById("ListBox1"), document.getElementById("lstBox").options[i].value,
+                    document.getElementById("lstBox").options[i].value, document.getElementById("lstBox").options[i].id );
                 document.getElementById("lstBox").remove(i);
                 break
             }
@@ -53,7 +54,8 @@ function SecondListBox() {
         var count = document.getElementById("ListBox1").options.length;
         for (i = 0; i < count; i++) {
             if (document.getElementById("ListBox1").options[i].selected) {
-                SecListBox(document.getElementById("lstBox"), document.getElementById("ListBox1").options[i].value, document.getElementById("ListBox1").options[i].value, document.getElementById("ListBox1").options[i].id);
+                SecListBox(document.getElementById("lstBox"), document.getElementById("ListBox1").options[i].value,
+                    document.getElementById("ListBox1").options[i].value, document.getElementById("ListBox1").options[i].id);
                 document.getElementById("ListBox1").remove(i);
                 break
             }
@@ -62,4 +64,14 @@ function SecondListBox() {
     } catch (er) {
         alert(er)
     }
+}
+
+function send_value(){
+    var messages = new Array();
+    for (i = 0; i < document.getElementById("ListBox1").options.length; i++) {
+        messages[i] = document.getElementById("ListBox1").options[i].id;
+    }
+
+    document.myform.secret.value = messages.toString();
+
 }
